@@ -2,21 +2,9 @@ FROM centos:7.2.1511
 
 MAINTAINER jack@is-land.com.tw
 #TODO insall JAVA AND MAVEN
-RUN yum install -y wget tar git
+RUN yum install -y wget tar git subversion
 
-RUN wget http://www.apache.org/dist/mesos/0.28.2/mesos-0.28.2.tar.gz -o /opt/mesos-0.28.2.tar.gz
+RUN wget repos.mesosphere.com/el-testing/7/x86_64/RPMS/mesos-0.26.1-1.0.21.rc2.centos701406.x86_64.rpm
 
-RUN tar zxvf -C /opt /opt/mesos-0.28.2.tar.gz
+RUN rpm -ivh mesos-0.26.1-1.0.21.rc2.centos701406.x86_64.rpm --force --nodeps
 
-RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-
-RUN yum install -y epel-release
-
-COPY repo/wandisco-svn.repo /etc/yum.repos.d
-
-RUN yum groupinstall -y "Development Tools"
-
-RUN yum install -y python-devel zlib-devel libcurl-devel openssl-devel cyrus-sasl-devel cyrus-sasl-md5 apr-devel subversion-devel apr-util-devel
-
-
-#TODO RUN make and insall
