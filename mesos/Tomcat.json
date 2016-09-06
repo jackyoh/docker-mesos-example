@@ -1,0 +1,10 @@
+{
+  "id": "tomcat",
+  "cmd": "cd apache-tomcat-* && sed \"s/8080/1234/g\" < ./conf/server.xml > ./conf/server-mesos.xml && ./bin/catalina.sh run -config ./conf/server-mesos.xml",
+  "mem": 512,
+  "cpus": 1.0,
+  "instances": 2,
+  "uris": [
+    "http://ftp.tc.edu.tw/pub/Apache/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz"
+  ]
+}
