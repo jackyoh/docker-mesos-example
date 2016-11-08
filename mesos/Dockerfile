@@ -2,12 +2,12 @@ FROM centos:7.2.1511
 
 MAINTAINER jack@is-land.com.tw
 #TODO insall JAVA AND MAVEN
-RUN yum install -y wget tar git subversion net-tools lsof telnet openssh-server
+#RUN yum install -y wget tar git subversion net-tools lsof telnet openssh-server
+RUN apt-get update
+RUN apt-get install -y wget tar git subversion net-tools lsof telnet openssh-server docker.io
 
-RUN wget http://repos.mesosphere.com/el-testing/7/x86_64/RPMS/mesos-0.28.2-1.0.45.rc1.centos701406.x86_64.rpm
-
-
-RUN rpm -ivh mesos-0.28.2-1.0.45.rc1.centos701406.x86_64.rpm --force --nodeps
+#RUN wget http://repos.mesosphere.com/el-testing/7/x86_64/RPMS/mesos-0.28.2-1.0.45.rc1.centos701406.x86_64.rpm
+#RUN rpm -ivh mesos-0.28.2-1.0.45.rc1.centos701406.x86_64.rpm --force --nodeps
 
 #Install JDK
 RUN wget http://192.168.1.214/sharefolder/java/jdk-7u71-linux-x64.tar.gz
